@@ -1,0 +1,46 @@
+> summary(lm(respcor ~ predA * predC + predB, data=d2))
+
+Call:
+lm(formula = respcor ~ predA * predC + predB, data = d2)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-77.380 -17.985  -1.604  16.855  99.656 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 37.491645  47.899256   0.783  0.43474    
+predA        0.729282   0.545950   1.336  0.18317    
+predC        1.893502   0.520236   3.640  0.00035 ***
+predB        3.003993   0.075593  39.739  < 2e-16 ***
+predA:predC -0.020385   0.004631  -4.402 1.77e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 31.62 on 195 degrees of freedom
+Multiple R-squared:  0.9184,	Adjusted R-squared:  0.9167 
+F-statistic: 548.3 on 4 and 195 DF,  p-value: < 2.2e-16
+
+> sd2 <-as.data.frame(scale(d2))
+> summary(lm(respcor ~ predA * predC + predB, data=sd2))
+
+Call:
+lm(formula = respcor ~ predA * predC + predB, data = sd2)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.70636 -0.16417 -0.01464  0.15386  0.90970 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.06225    0.02483  -2.507    0.013 *  
+predA        0.47009    0.04502  10.441  < 2e-16 ***
+predC       -0.02486    0.04500  -0.552    0.581    
+predB        0.81410    0.02049  39.739  < 2e-16 ***
+predA:predC -0.07025    0.01596  -4.402 1.77e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.2887 on 195 degrees of freedom
+Multiple R-squared:  0.9184,	Adjusted R-squared:  0.9167 
+F-statistic: 548.3 on 4 and 195 DF,  p-value: < 2.2e-16
